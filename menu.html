@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padaria GoldenDish</title>
+  <link href="./PáginaMenu/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="./PáginaMenu/style.css">
+  <link rel="shortcut icon" href="./img/logo.PNG" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head> 
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-orange fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Golden Dish</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"  >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Início</a>
+          </li>
+          <li >
+            <a class="nav-link" href="sobre.html">Sobre</a>
+          </li>
+          <li>
+            <a href="#" id="cadastroBtn" class="nav-link">Cadastre-se</a>
+            <div id="cadastroForm" class="modal">
+              <main class="w-100 m-auto form-container">
+                <form class="modal-content animate" action="/submit-your-login-form">
+                  <img src="./img/logo.PNG" alt="" class="mb-2" height="48" width="63">
+                  <h1 class="h2 mb-2 fw-normal">Faça seu cadastro</h1>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="nomeInput" placeholder="Digite seu nome" required>
+                    <label for="floatingInput">Nome</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="tel" class="form-control" id="telefoneInput" placeholder="Digite seu número" required>
+                    <label for="floatingInput">telefone</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="emailInput" placeholder="Seu melhor e-mail" required>
+                    <label for="floatingInput">Seu E-mail</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="senhaInput" placeholder="Digite uma senha" required>
+                    <label for="floatingInput">Sua senha</label>
+                  </div>
+                  <div class="form-check text-start my-3">
+                    <input type="checkbox" class="form-check-input" id="flexCheckDefault">
+                    <label class="form-check-label" id="flexCheckDefault">Lembre-me</label>
+                  </div>
+                  <button class="btn btn-primary w-100 py-2">Cadastre-se</button>
+                </form>
+              </main>
+            </div>
+          </li>
+          <li >
+              <a href="#" id="loginBtn" class="nav-link">Login</a>
+              <div id="loginForm" class="modal">
+                <main class="w-100 m-auto form-container">
+                  <form class="modal-content animate" action="/submit-your-login-form">
+                    <img src="./img/logo.PNG" alt="" class="mb-4" height="57" width="72">
+                    <h1 class="h3 mb-3 fw-normal">Faça seu login</h1>
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="emailInput2" placeholder="E-mail" required>
+                      <label for="floatingInput">E-mail</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control" id="senhaInput2" placeholder="Senha" required>
+                      <label for="floatingInput">Senha</label>
+                    </div>
+                    <div class="form-check text-start my-3">
+                      <input type="checkbox" class="form-check-input" id="flexCheckDefault">
+                      <label class="form-check-label" id="flexCheckDefault">Lembre-me</label>
+                    </div>
+                    <button id="loginEntrar" class="btn btn-primary w-100 py-2">Entrar</button>
+                  </form>
+                </main>
+              </div>
+          </li>
+          <li class="containerPedido">
+              <a href="#" id="resumoPedidoBtn" class="btnFinalizarPedido" >
+                <div class="btn btn-light btn-sm ml-3" style="background-color:#fafafa36; color:#FFF; border:0;">
+                  <span class="my-cart-icon" data-toggle="modal" data-target=".bs-addprod" id="carrinhobtn" style="font-size:15px !important; cursor: pointer;"><i class="fa fa-shopping-cart" style="margin-right: 2px"></i> Finalizar Pedido
+                  </div>
+                </a>
+                <div class="modalCarrinho" class="modalCarrinho-content"  id="resumoPedidoModal"
+              class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <img src="./img/logo.PNG" alt="" height="40" width="52" >
+                    <h5 class="modal-title" id="titleCarrinho">Resumo Pedido:</h5>
+                    <button id="closeCarrinho" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      fecharModalCarrinho()>
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" id="ProdutosNoCarrinho">
+                  Escolha seu pedido primeiro!!
+                  </div>
+                  <div class="modal-footer" id="footerCarrinho">
+                      <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold;" id="valorTotal">Valor Total: R$0.00</span> </p>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="limparCarrinho" >Limpar</button>
+                        <button type="button" class="btn btn-primary" id="btnFazerPedido">Pedir</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <div class="container mt-5">
+    <h1 class="txt">Bem-vindo ao site da padaria Golden Dish!</h1>
+    <p class="txt">Entre no delicioso mundo dos sabores tradicionais com a nossa padaria, onde cada aroma é uma história e
+      cada sabor uma memória.</p>
+
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img
+            src="./img/capaPães.webp"
+            class="card-img-top img-card" alt="Console">
+          <div class="card-body">
+            <h5 class="card-title">Pães</h5>
+            <p class="card-text">Descubra a autenticidade e o sabor inigualável de nossos pães tradicionais. Oferecemos
+              uma variedade.</p>
+            <button class="btn btn-primary " id="btnComprar1" onclick="abrirModal('modalCompra1')">Inspecionar</button>
+            <div class="modalCompra" class="modalCompra-content" class="compra-container" id="modalCompra1"
+              class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalCompraTitle">Pães:</h5>
+                    <button id="close" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      onclick="fecharModal('modalCompra1')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <div class="produtosModal">
+                    <div class="produto-info">
+                      <div class="info-textual">
+                        <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Pão Françês</p>
+                        <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 0.60</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="0" readonly> <button class="incrementarPedido" >+</button></span></p> 
+                        </div>
+                        <div class="info-imagem">
+                          <img src="./img/pãoFrancês.jpeg">
+                          <div class="buttonInterativo">
+                              <span class="fas fa-plus"></span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="produto-info">
+                      <div class="info-textual">
+                        <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Pão Doce</p>
+                        <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 1.00</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="1" readonly> <button class="incrementarPedido" >+</button></span></p>
+                        </div>
+                        <div class="info-imagem">
+                          <img src="./img/pãoDocejpeg.jpeg">
+                          <div class="buttonInterativo">
+                              <span class="fas fa-plus"></span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="produto-info">
+                      <div class="info-textual">
+                        <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Pão Recheado</p>
+                        <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 1.10</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="2" readonly> <button class="incrementarPedido">+</button></span></p>
+                        </div>
+                        <div class="info-imagem">
+                          <img src="./img/pãoRecheado.jpeg">
+                          <div class="buttonInterativo">
+                              <span class="fas fa-plus"></span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkScreenSize('modalCompra1')">Ver <i class="fa fa-shopping-cart" style="margin-right: 2px"></i></button>
+                    <button type="button" class="btn btn-primary" class="adiciona" onclick="adicionarPedido('modalCompra1')">Adicionar Pedido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://cdn.awsli.com.br/800x800/471/471375/produto/183600213/2bd1b09e10.jpg"
+            class="card-img-top img-card" alt="Console">
+          <div class="card-body">
+            <h5 class="card-title">Bolos e Tortas</h5>
+            <p class="card-text"> Nossa confeitaria artesanal produz diariamente uma tentadora variedade de tortas e
+              bolos.</p>
+            <button class="btn btn-primary" id="btnComprar2" onclick="abrirModal('modalCompra2')">Inspecionar</button>
+            <div class="modalCompra" class="modalCompra-content" class="compra-container" id="modalCompra2"
+              class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Bolos e Tortas:</h5>
+                    <button id="close" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      onclick="fecharModal('modalCompra2')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="produtosModal">
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Bolo de Chocolate</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 15.00 <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="3" readonly> <button class="incrementarPedido">+</button></span> </span></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/bolodechocolate.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Bolo de Milho</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 15.00</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="4" readonly> <button class="incrementarPedido">+</button></span> </p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/bolodeMilho.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Torta de Maracujá</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 12.00</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="5" readonly> <button class="incrementarPedido">+</button></span> </p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/tortadeMaracujá.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkScreenSize('modalCompra2')">Ver <i class="fa fa-shopping-cart" style="margin-right: 2px"></i></button>
+                    <button type="button" class="btn btn-primary" class="adiciona" onclick="adicionarPedido('modalCompra2')">Adicionar Pedido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img
+            src="https://s2.glbimg.com/5MiH6wuMJHyZrj6tDsSKVI0Q5XA=/smart/e.glbimg.com/og/ed/f/original/2020/08/13/receita-cappuccino-caseiro.jpg"
+            class="card-img-top img-card" alt="Jogo">
+          <div class="card-body">
+            <h5 class="card-title">Cappuccinos</h5>
+            <p class="card-text">Oferecemos cappuccinos cremosos e uma seleção refinada de chás, perfeitos para uma
+              pausa relaxante no do dia. </p>
+            <button class="btn btn-primary" id="btnComprar3" onclick="abrirModal('modalCompra3')">Inspecionar</button>
+            <div class="modalCompra" class="modalCompra-content" class="compra-container" id="modalCompra3"
+              class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Cappuccinos:</h5>
+                    <button id="Close" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      onclick="fecharModal('modalCompra3')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="produtosModal">
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Cappuccino de Chocolate</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 4.50</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="6" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/capuccinoChocolate.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Cappucino canela com Mel</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 5.00</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="7" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/capuccinoMel.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Cappuccino Italiano</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 5.50</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="8" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/capuccinoItaliano.jpg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkScreenSize('modalCompra3')">Ver <i class="fa fa-shopping-cart" style="margin-right: 2px"></i></button>
+                    <button type="button" class="btn btn-primary" class="adiciona" onclick="adicionarPedido('modalCompra3')">Adicionar Pedido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img
+            src="./img/salgados.jpeg"
+            class="card-img-top img-card" alt="Jogo">
+          <div class="card-body">
+            <h5 class="card-title">Salgados</h5>
+            <p class="card-text">Descubra o sabor inconfundível de nossos salgados. Cada um é uma obra-prima
+              culinária.</p>
+            <button class="btn btn-primary" id="btnComprar4" onclick="abrirModal('modalCompra4')">Inspecionar</button>
+            <div class="modalCompra" class="modalCompra-content" class="compra-container" id="modalCompra4"
+              class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title2">Salgados:</h5>
+                    <button id="Close" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      onclick="fecharModal('modalCompra4')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="produtosModal">
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Coxinha de Frango</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 0.60</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="9" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/coxinha.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Bomba de queijo e presunto</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 6.00</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="10" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/bomba.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Enrroladinho</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 5.00</span>  <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="11" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/enrroladinho.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkScreenSize('modalCompra4')">Ver <i class="fa fa-shopping-cart" style="margin-right: 2px"></i></button>
+                    <button type="button" class="btn btn-primary" class="adiciona" onclick="adicionarPedido('modalCompra4')">Adicionar Pedido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://nutritotal.com.br/publico-geral/wp-content/uploads/2019/08/shutterstock_284053346.jpg"
+            class="card-img-top img-card" alt="Jogo">
+          <div class="card-body">
+            <h5 class="card-title">Gelados</h5>
+            <p class="card-text">Mergulhe numa onda de frescor com nossa seleção exclusiva de bebidas geladas. Ideal
+              para se refrescar em um dia quente.</p>
+            <button class="btn btn-primary" id="btnComprar5" onclick="abrirModal('modalCompra5')">Inspecionar</button>
+            <div class="modalCompra" class="modalCompra-content" class="compra-container" id="modalCompra5"
+              class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title2">Gelados:</h5>
+                    <button id="Close" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      onclick="fecharModal('modalCompra5')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="produtosModal">
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Coca-cola</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 5.00</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="12" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/coca.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Suco de Maracujá</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 6.00</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="13" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/sucodeMaracujá.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Suco de Abacaxi</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 5.00</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="14" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/sucodeAbacaxi.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkScreenSize('modalCompra5')">Ver <i class="fa fa-shopping-cart" style="margin-right: 2px"></i></button>
+                    <button type="button" class="btn btn-primary" class="adiciona" onclick="adicionarPedido('modalCompra5')">Adicionar Pedido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://amopaocaseiro.com.br/wp-content/uploads/2022/08/yt-069_pao-de-queijo_receita-840x560.jpg"
+            class="card-img-top img-card" alt="Jogo">
+          <div class="card-body">
+            <h5 class="card-title">Pães de Queijo</h5>
+            <p class="card-text">Venha saborear a tradição e o conforto em cada mordida com nossos pães de queijo, todos
+              de alta qualidade.</p>
+            <button class="btn btn-primary" id="btnComprar6" onclick="abrirModal('modalCompra6')">Inspecionar</button>
+            <div class="modalCompra" class="modalCompra-content" class="compra-container" id="modalCompra6"
+              class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title2">Pães de Queijo:</h5>
+                    <button id="Close" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                      onclick="fecharModal('modalCompra6')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="produtosModal">
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Pão de queijo Tradicional</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 2.00</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="15" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/pãodequeijoTradicional.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Pão de queijo Recheado</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 3.10</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="16" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/pãesdeQueijoRecheado.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="produto-info">
+                        <div class="info-textual">
+                          <p style="color: #000000 !important; margin:0px; font-size:1rem; font-weight:bold;">Pão de queijo Vegano</p>
+                          <p class="mb-1" style="margin-top: 5px;"><span style="font-weight: bold">R$ 3.50</span> <span class="mb-1" style="margin-top: 5px;"> <button class="decrementarPedido">-</button> <input type="number" class="quantidade" value="0" min="0" max="10" data-index="17" readonly> <button class="incrementarPedido">+</button></p>
+                          </div>
+                          <div class="info-imagem">
+                            <img src="./img/pãodequeijoVegano.jpeg">
+                            <div class="buttonInterativo">
+                                <span class="fas fa-plus"></span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="checkScreenSize('modalCompra6')">Ver <i class="fa fa-shopping-cart" style="margin-right: 2px"></i></button>
+                    <button type="button" class="btn btn-primary" class="adiciona" onclick="adicionarPedido('modalCompra6')">Adicionar Pedido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="bg-dark text-light text-center py-3">
+    <div class="container">
+      &copy; 2024 Site Padaria Golden Dish. Todos os direitos reservados.
+    </div>
+  </footer>
+  <script src="./PáginaMenu/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
