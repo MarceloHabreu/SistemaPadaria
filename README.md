@@ -1,5 +1,8 @@
 # Padaria GoldenDish 🍞✨
 
+## Implantação do projeto
+ **Link da Implantação**: [PadariaGoldenDish](https://padariagoldendish.netlify.app/).
+
 ## 📖 Descrição
 
 O projeto **Padaria GoldenDish** foi desenvolvido como parte de uma responsabilidade universitária no **PIE (Projeto Integrador Extensionista)**, focado no desenvolvimento front-end. Durante o primeiro semestre do curso de **Análise e Desenvolvimento de Sistemas (ADS)**, a sala foi dividida em cinco grupos, cada um recebendo um tema para implementar uma solução. O tema designado ao meu grupo foi criar um site para uma padaria que buscava expandir seus negócios.
@@ -52,7 +55,16 @@ Principalmente **jovens e adultos** que possuem familiaridade com aplicações w
 
 ## 📸 Demonstração
 
-Adicionarei imagens para melhor visualizar o projeto.
+- Tela Inicial:
+![Tela Incial](https://github.com/MarceloHabreu/SistemaPadaria/blob/main/screenshotsProject/Screenshot%202025-01-26%20161108.png)
+- Tela Menu:
+![Tela Menu](https://github.com/MarceloHabreu/SistemaPadaria/blob/main/screenshotsProject/Screenshot%202025-01-26%20161128.png)
+![Tela Menu](https://github.com/MarceloHabreu/SistemaPadaria/blob/main/screenshotsProject/Screenshot%202025-01-26%20161208.png)
+- Carrinho:
+![Carrinho](https://github.com/MarceloHabreu/SistemaPadaria/blob/main/screenshotsProject/Screenshot%202025-01-26%20161310.png)
+- Tela Sobre:
+![Tela Sobre](https://github.com/MarceloHabreu/SistemaPadaria/blob/main/screenshotsProject/Screenshot%202025-01-26%20161331.png)
+
 
 ## 🤝 Contribuição
 
@@ -60,12 +72,12 @@ Se você deseja contribuir com o projeto, fique à vontade. Existem diversas ár
 
 ## 📜 Licença
 
-Este projeto está sob uma licença **pública**.
+Este projeto está licenciado sob a MIT License. 
 
 ## 👤 Autores
 
 - **Marcelo Henrique Abreu Silva**
-- Colaboradores: Apenas possuo o GitHub de um colaborador.
+- Colaboradores: [@Rikelmy Aguiar](https://github.com/rikelmyaguiar)
 
 ## 📚 Referências
 
